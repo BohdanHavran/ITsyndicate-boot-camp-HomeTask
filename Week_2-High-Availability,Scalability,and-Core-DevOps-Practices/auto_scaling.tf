@@ -16,7 +16,7 @@ resource "aws_autoscaling_group" "web" {
 resource "aws_autoscaling_policy" "up" {
   name                   = "${aws_launch_configuration.web.name}_up"
   autoscaling_group_name = aws_autoscaling_group.web.name
-  adjustment_type        = "ChangeUp"
+  adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = 1
   cooldown               = 30
 }
@@ -24,7 +24,7 @@ resource "aws_autoscaling_policy" "up" {
 resource "aws_autoscaling_policy" "down" {
   name                   = "${aws_launch_configuration.web.name}_down"
   autoscaling_group_name = aws_autoscaling_group.web.name
-  adjustment_type        = "ChangeDown"
+  adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = -1
   cooldown               = 30
 }
