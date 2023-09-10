@@ -1,8 +1,15 @@
 # High Availability, Scalability, and Core DevOps Practices
 
 Hi, In this task I used Terraform to deploy the infrastructure
-  
-# How to start?
+
+<h3>Roadmap:</h3>
+
+- [Deploy and Scale an Application using Docker and AWS](#task1) 
+- [Speed up the application with a CDN](#task2) 
+
+# <a name="task1">Task: Deploy and Scale an Application using Docker and AWS</a>
+
+### How to start?
 
 In order to start working with the project, you need:
 ```
@@ -41,13 +48,16 @@ Here you can view all information about the Auto Scaling groups
 Here you can view all information about the CloudWatch
 
 ![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/7ca2bc2c-5f1e-4903-a789-d67abf18594a)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/763fa912-8a4b-40ec-9670-b8b583d541a3)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/754c5984-da20-4c89-ab30-db8c0bccc04b)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/f98b7e58-f13a-42fd-8fc4-3bf15f052eef)
 
 ### Result
 The result of the work done
 
-![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/15a9db6b-d3a0-4e6e-b79c-0e1c06822b84)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/baf2c9f5-9198-43f8-8291-08868f0e85d8)
 
-# EC2 Auto-Scaling Group vs ECS Fargate
+### EC2 Auto-Scaling Group vs ECS Fargate
 
 EC2 Auto-Scaling Group
 
@@ -75,3 +85,32 @@ Cons:
 - Limited Customization: Fargate abstracts infrastructure details, limiting the customization options available for EC2 instances. Some advanced configurations may not be possible.
 - Higher Cost for Consistent Workloads: Fargate can be more expensive than EC2 instances for applications with consistent workloads, as you pay a premium for the managed service.
 - Learning Curve: While Fargate simplifies deployment, it may require some time for teams to adapt to the managed service paradigm.
+
+# <a name="task2">Task: Speed up the application with a CDN</a>
+### Create AWS CloudFront
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/beb20834-fd2c-4dd6-9bf8-2c25dd299c46)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/3e0bea92-e57e-4c97-9695-2daac242c7ae)
+
+### Connect AWS CloudFront before the load balancer
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/ae00ba69-07bf-4482-8441-4d32552b465e)
+
+### Behavior 
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/d40f9c4d-8053-4c5d-ba32-dae17a623b41)
+
+### Load testing 
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/9b2bb8d2-005f-444b-867d-cfda80fd267a)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/9526eade-3d86-4f72-948a-161483f51f79)
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/33956ac5-d82b-401d-8fda-d53b18d2fc9d)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/46872fd4-640c-4b7e-bb96-23f379715fd2)
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/66ca9679-89ab-4ba3-96a7-fbfa6880fccb)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/94e03070-bb25-4309-8578-c1470c1e26c7)
+
+
+
+
