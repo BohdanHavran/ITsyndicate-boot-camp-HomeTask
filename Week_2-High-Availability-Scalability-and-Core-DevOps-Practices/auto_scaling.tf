@@ -6,7 +6,6 @@ resource "aws_autoscaling_group" "web" {
   max_size             = 3
   desired_capacity     = 2
   vpc_zone_identifier  = [aws_default_subnet.default_az1.id, aws_default_subnet.default_az2.id, aws_default_subnet.default_az3.id]
-  load_balancers       = [aws_elb.web.name]
   health_check_type    = "ELB"
   lifecycle {
     create_before_destroy = true
@@ -29,8 +28,7 @@ resource "aws_autoscaling_policy" "down" {
   cooldown               = 30
 }
 
-resource "aws_autoscaling_attachment" "as" {
+resource "aws_autoscaling_attachment" "aasa" {
   autoscaling_group_name = aws_autoscaling_group.web.id
-  elb                    = aws_elb.web.id
+  lb_target_group_arn    = aws_lb_target_group.as_group.arn
 }
-

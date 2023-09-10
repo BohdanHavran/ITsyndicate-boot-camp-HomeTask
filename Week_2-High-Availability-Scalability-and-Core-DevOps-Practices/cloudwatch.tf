@@ -1,10 +1,10 @@
 # AWS cloudwatch
 resource "aws_cloudwatch_metric_alarm" "Request_Count_up" {
-  alarm_name          = "${aws_launch_configuration.web.name}_RequestCount"
+  alarm_name          = "${aws_launch_configuration.web.name}_RequestCount_up"
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = 2
+  evaluation_periods  = 1
   metric_name         = "RequestCount"
-  namespace           = "AWS/${aws_launch_configuration.web.name}"
+  namespace           = "AWS/ApplicationELB"
   period              = 60
   statistic           = "Sum"
   threshold           = 300
@@ -12,16 +12,17 @@ resource "aws_cloudwatch_metric_alarm" "Request_Count_up" {
   alarm_actions       = [aws_autoscaling_policy.up.arn]
 
   dimensions = {
-    elb = aws_elb.web.arn
+    LoadBalancer = aws_lb.web.arn_suffix
+    TargetGroup  = aws_lb_target_group.as_group.arn_suffix
   }
 }
 
 resource "aws_cloudwatch_metric_alarm" "Request_Count_down" {
-  alarm_name          = "${aws_launch_configuration.web.name}_RequestCount"
+  alarm_name          = "${aws_launch_configuration.web.name}_RequestCount_down"
   comparison_operator = "LessThanOrEqualToThreshold"
-  evaluation_periods  = 2
+  evaluation_periods  = 1
   metric_name         = "RequestCount"
-  namespace           = "AWS/${aws_launch_configuration.web.name}"
+  namespace           = "AWS/ApplicationELB"
   period              = 60
   statistic           = "Sum"
   threshold           = 10
@@ -29,7 +30,7 @@ resource "aws_cloudwatch_metric_alarm" "Request_Count_down" {
   alarm_actions       = [aws_autoscaling_policy.down.arn]
 
   dimensions = {
-    elb = aws_elb.web.arn
+    LoadBalancer = aws_lb.web.arn_suffix
+    TargetGroup  = aws_lb_target_group.as_group.arn_suffix
   }
 }
-
