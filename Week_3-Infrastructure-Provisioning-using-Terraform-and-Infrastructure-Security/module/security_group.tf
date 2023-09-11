@@ -5,7 +5,7 @@ resource "aws_security_group" "Webapplication_security" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["92.253.215.244/32"]
+    cidr_blocks = [var.sg_ssh_cidr_blocks]
   }
 
   ingress {

@@ -26,3 +26,7 @@ variable "iam_user" {
   description = "IAM user"
   default     = "IAM"
 }
+variable "sg_ssh_cidr_blocks" {
+  description = "cidr_blocks"
+  default     = "0.0.0.0/0"
+}
