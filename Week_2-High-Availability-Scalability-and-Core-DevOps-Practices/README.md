@@ -16,7 +16,7 @@ In order to start working with the project, you need:
 git clone https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask.git
 ```
 ```
-cd ITsyndicate-boot-camp-HomeTask/Week_2-High-Availability,Scalability,and-Core-DevOps-Practices
+cd ITsyndicate-boot-camp-HomeTask/Week_2-High-Availability-Scalability-and-Core-DevOps-Practices
 ```
 In order to run this project, you need to enter the following commands:
 ```
