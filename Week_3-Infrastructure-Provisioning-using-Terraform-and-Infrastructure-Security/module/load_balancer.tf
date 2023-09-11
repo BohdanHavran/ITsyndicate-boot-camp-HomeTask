@@ -1,10 +1,9 @@
 # AWS Load Balancer
-
 resource "aws_lb" "web" {
   name               = "WebServer-ELB"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.Webapplication_security.id]
+  security_groups    = [aws_security_group.lb_security.id]
   subnets            = [aws_default_subnet.default_az1.id, aws_default_subnet.default_az2.id, aws_default_subnet.default_az3.id]
 
   tags = {
