@@ -26,6 +26,14 @@ terragrunt destroy --auto-approve
 
 ![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/b33c281d-cdfd-42fe-b243-843de5120e23)
 
+If you need to change any configuration, you need to open the [terragrunt.hcl](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/blob/main/Week_3-Infrastructure-Provisioning-using-Terraform-and-Infrastructure-Security/terragrunt/production/web_service/terragrunt.hcl) file in any development environment
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/2cf44c2a-7117-4e65-b527-1ed144bb02e5)
+
+In order to enter the provider, you need the [common.tfvars](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/blob/main/Week_3-Infrastructure-Provisioning-using-Terraform-and-Infrastructure-Security/terragrunt/production/common.tfvars) file in any development environment
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/ec8a70c2-f64d-4cc8-9de8-8c1400c93a68)
+
 
 ### EC2
 Here you can view all information about the instance
@@ -58,6 +66,7 @@ Here you can view all information about the CloudWatch
 ![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/f98b7e58-f13a-42fd-8fc4-3bf15f052eef)
 
 ### IAM
+Upon completion of infrastructure infrastructure, a user will be created who will supervise the work
 
 ![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/90435ae6-efc3-4718-9e84-8596d932c104)
 ![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/23d81030-26c3-4860-b49a-e4f3aa8aaab1)
