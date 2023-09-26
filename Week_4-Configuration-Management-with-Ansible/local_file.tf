@@ -15,6 +15,7 @@ resource "local_file" "database" {
   content = templatefile("${path.module}/tpl/group_vars.tpl",
     {
       bastion_public_ip = aws_instance.Bastion.public_ip
+      ssh_key           = var.private_key
     }
   )
   filename = "${path.module}/ansible/group_vars/database"
@@ -24,6 +25,7 @@ resource "local_file" "app" {
   content = templatefile("${path.module}/tpl/group_vars.tpl",
     {
       bastion_public_ip = aws_instance.Bastion.public_ip
+      ssh_key           = var.private_key
     }
   )
   filename = "${path.module}/ansible/group_vars/app"
