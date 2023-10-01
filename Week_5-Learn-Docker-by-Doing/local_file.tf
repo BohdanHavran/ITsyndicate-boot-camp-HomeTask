@@ -19,19 +19,6 @@ resource "local_file" "database" {
   filename = "${path.module}/ansible/group_vars/database"
 }
 
-resource "local_file" "settings" {
-  content = templatefile("${path.module}/tpl/settings.tpl",
-    {
-      db_name     = var.db_name
-      db_user     = var.db_user
-      db_password = var.db_password
-      db_ip       = aws_instance.BD.private_ip
-      elb_ip      = aws_lb.web.dns_name
-    }
-  )
-  filename = "${path.module}/docker/sample-django/mysite/settings.py"
-}
-
 resource "local_file" "bd_vars" {
   content = templatefile("${path.module}/tpl/bd_vars.tpl",
     {

@@ -1,15 +1,18 @@
-FROM python:3
+FROM python:3.11-alpine
 
 WORKDIR /app
 
-COPY sample-django/requirements.txt /app/
+RUN apk add --no-cache bash
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY sample-django/requirements.txt ./
+COPY sample-django/. ./
 
-COPY sample-django/. /app/
-
-RUN chmod +x script.sh
+RUN adduser -D -u 1001 appuser && \
+    pip install --no-cache-dir -r requirements.txt && \
+    chown -R appuser:appuser /app
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "/app/script.sh"]
+USER appuser
+
+CMD ["sh", "-c", ".script.sh"]

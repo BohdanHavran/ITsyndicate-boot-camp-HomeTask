@@ -18,7 +18,8 @@ resource "aws_ecs_task_definition" "django_docker_task" {
         }
       ],
       "memory": 512,
-      "cpu": 256
+      "cpu": 256,
+      "environment": ${jsonencode(var.postgres_env)}
     }
   ]
 DEFINITION

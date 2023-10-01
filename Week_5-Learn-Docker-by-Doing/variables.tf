@@ -31,3 +31,28 @@ variable "private_key" {
   description = "Source private key"
   default     = "~/.ssh/id_rsa"
 }
+
+variable "postgres_env" {
+  default = [
+    {
+      "name" : "DB_NAME",
+      "value" : var.db_name
+    },
+    {
+      "name" : "DB_USER",
+      "value" : var.db_user
+    },
+    {
+      "name" : "DB_PASSWORD",
+      "value" : var.db_password
+    },
+    {
+      "name" : "DB_IP",
+      "value" : aws_instance.BD.private_ip
+    },
+    {
+      "name" : "DJANGO_ALLOWED_HOSTS",
+      "value" : aws_lb.web.dns_name
+    }
+  ]
+}
