@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   django:
-    image: test:1
+    image: django-docker:1
     build:
       context: django_docker/
       dockerfile: Dockerfile
@@ -13,7 +13,7 @@ services:
       - DB_IP
       - DJANGO_ALLOWED_HOSTS
     ports:
-      - 81:8000
+      - 80:8000
     restart: always
     networks:
       - private.app
