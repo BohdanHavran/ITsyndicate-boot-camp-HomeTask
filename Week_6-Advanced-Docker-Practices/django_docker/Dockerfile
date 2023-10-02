@@ -4,7 +4,6 @@ WORKDIR /app
 
 RUN apk add --no-cache bash
 
-COPY ./requirements.txt ./
 COPY ./ ./
 
 RUN adduser -D -u 1001 appuser && \
