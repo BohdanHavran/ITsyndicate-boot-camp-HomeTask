@@ -73,3 +73,34 @@ CMD ["sh", "-c", "/app/script.sh"]
 
 ![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/1ac01809-025a-45e3-a6a0-4736ce764dbf)
 
+# Enhancing Docker Image Security
+
+- Create a non-root user: We create a non-root user (appuser) to run the application. Running as a non-root user reduces the potential damage if the application is compromised, as attackers won't have root-level access.
+- Change ownership: We change the ownership of the application files to appuser. This ensures that the application runs with the least privilege necessary, enhancing security.
+- Limit script permissions: We limit the script permissions to make it executable only by appuser. This reduces the risk of unauthorized execution or tampering of the script.
+- Switch to non-root user: We switch to the appuser before running the application, further reducing the attack surface.
+
+```
+FROM python:3.11-alpine
+
+WORKDIR /app
+
+RUN apk add --no-cache bash
+
+COPY sample-django/. ./
+
+RUN adduser -D -u 1001 appuser && \
+    pip install --no-cache-dir -r requirements.txt && \
+    chown -R appuser:appuser /app
+
+USER appuser
+
+CMD ["sh", "-c", "./script.sh"]
+```
+
+### Scanning
+I used the dive tool
+
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/a8356d88-4686-44d8-825f-2645ca95f766)
+![image](https://github.com/BohdanHavran/ITsyndicate-boot-camp-HomeTask/assets/7732624/7d2ce075-1001-40b2-a1f1-d1e53321de2f)
+
