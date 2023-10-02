@@ -1,4 +1,4 @@
-# Configuration Management Ansible
+# Learn Docker by Doing
 
 In this task, I used Terraform to deploy the infrastructure, build and deploy the Docker image, and Ansible to configure the database. Using Terraform I created an inventory and group_vars file, these files are used to connect Ansible to remote VM. After Terraform deploys the infrastructure, it runs Ansible, which already configures the database. If you don't have [Terraform](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform), [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html), or [Docker](https://docs.docker.com/engine/install/ubuntu/) installed, you need to install!
 
