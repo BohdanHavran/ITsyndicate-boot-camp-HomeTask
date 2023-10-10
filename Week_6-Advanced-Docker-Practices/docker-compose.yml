@@ -12,6 +12,7 @@ services:
       - POSTGRES_PASSWORD
       - DB_IP
       - DJANGO_ALLOWED_HOSTS
+      - POSTGRES_PORT
     ports:
       - 80:8000
     restart: always
