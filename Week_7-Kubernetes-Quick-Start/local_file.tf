@@ -1,6 +1,6 @@
 resource "local_file" "k8s_config" {
-  content  = digitalocean_kubernetes_cluster.django.kube_config.0.raw_config
-  filename = "${path.module}/django-kubeconfig.yaml"
+  content         = digitalocean_kubernetes_cluster.django.kube_config.0.raw_config
+  filename        = "${path.module}/django-kubeconfig.yaml"
   file_permission = "0600"
 }
 
@@ -10,7 +10,7 @@ resource "local_file" "secret" {
       password = base64encode(digitalocean_database_user.django_user.password)
     }
   )
-  filename = "${path.module}/django-k8s/templates/secret.yaml"
+  filename = "${path.module}/helm/django-k8s/templates/secret.yaml"
 }
 
 resource "local_file" "configmap" {
@@ -22,5 +22,5 @@ resource "local_file" "configmap" {
       port = digitalocean_database_cluster.postgres.port
     }
   )
-  filename = "${path.module}/django-k8s/templates/configmap.yaml"
+  filename = "${path.module}/helm/django-k8s/templates/configmap.yaml"
 }

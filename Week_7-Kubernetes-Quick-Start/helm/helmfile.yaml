@@ -1,0 +1,5 @@
+releases:
+  - name: django-k8s
+    chart: ./django-k8s
+    values:
+      - ./django-k8s/values.yaml

@@ -27,3 +27,10 @@ spec:
                 name: {{ .Release.Name }}-configmap
             - secretRef:
                 name: {{ .Release.Name }}-secret
+          volumeMounts:
+            - name: storage-static
+              mountPath: /app/static
+      volumes:
+        - name: storage-static
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-pvc
